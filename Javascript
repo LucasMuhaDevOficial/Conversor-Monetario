@@ -1,0 +1,25 @@
+function converter() {
+	const valor = document.getElementById('valor').value;
+	const moedaOrigem = document.getElementById('moeda-origem').value;
+	const moedaDestino = document.getElementById('moeda-destino').value;
+
+	let resultado;
+
+	if (moedaOrigem === 'USD' && moedaDestino === 'BRL') {
+		resultado = valor * 5.5;
+	} else if (moedaOrigem === 'BRL' && moedaDestino === 'USD') {
+		resultado = valor / 5.5;
+	} else if (moedaOrigem === 'USD' && moedaDestino === 'EUR') {
+		resultado = valor * 0.84;
+	} else if (moedaOrigem === 'EUR' && moedaDestino === 'USD') {
+		resultado = valor / 0.84;
+	} else if (moedaOrigem === 'BRL' && moedaDestino === 'EUR') {
+		resultado = valor * 0.15;
+	} else if (moedaOrigem === 'EUR' && moedaDestino === 'BRL') {
+		resultado = valor / 0.15;
+	} else {
+		resultado = valor;
+	}
+
+	document.getElementById('resultado').innerHTML = `${valor} ${moedaOrigem} = ${resultado.toFixed(2)} ${moedaDestino}`;
+}
